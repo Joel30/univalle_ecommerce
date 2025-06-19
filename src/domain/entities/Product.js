@@ -3,7 +3,7 @@ class Product {
     this.name = name;
     this.description = description;
     this.price = price;
-    this.stock = stock;
+    this.stock = stock; // añadiendo campo stock
     this.category = category;
     this.imageUrl = imageUrl;
   }

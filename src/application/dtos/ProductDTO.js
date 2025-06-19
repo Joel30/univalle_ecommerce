@@ -4,7 +4,7 @@ class ProductDTO {
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;
-    this.stock = product.stock;
+    this.stock = product.stock; // añadido stock
     this.category = product.category;
     this.imageUrl = product.imageUrl;
   }
