@@ -18,7 +18,7 @@ const CouponController = require('./adapters/controllers/CouponController');
 const OrderController = require('./adapters/controllers/OrderController');
 
 const productRoutes = require('./adapters/routes/productRoutes');
-const categoryRoutes = require('./adapters/routes/categoryRoutes');x
+const categoryRoutes = require('./adapters/routes/categoryRoutes');
 const shoppingCartRoutes = require('./adapters/routes/shoppingCartRoutes');
 const couponRoutes = require('./adapters/routes/couponRoutes');
 const orderRoutes = require('./adapters/routes/orderRoutes');
@@ -82,7 +82,7 @@ app.use('/api/v1/products', verifyToken, productRoutes(productController));
 app.use('/api/v1/categories', verifyToken, categoryRoutes(categoryController));
 app.use('/api/v1/shopping-cart', verifyToken, shoppingCartRoutes(shoppingCartController));
 app.use('/api/v1/coupons', verifyToken, couponRoutes(couponController));
-app.use('/api/v1/order', verifyToken, shoppingCartRoutes(orderController));
+app.use('/api/v1/order', verifyToken, orderRoutes(orderController));
  
 // Error Handling
 app.use((err, req, res, next) => {

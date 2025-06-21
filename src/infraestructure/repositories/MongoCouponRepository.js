@@ -10,8 +10,6 @@ class MongoCouponRepository extends CouponRepository {
 
   async create(coupon) {
     const newCoupon = await CouponModel.create(coupon);
-    console.log('Coupon created:', newCoupon);
-    
     return new Coupon(newCoupon.toObject());
   }
 }

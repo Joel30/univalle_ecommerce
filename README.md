@@ -43,6 +43,94 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
     npm start
     ```
 
+## Estructura del proyecto
+
+El proyecto está organizado de la siguiente manera:
+```
+backen-ecommerce/
+├── src
+│   ├── adapters
+│   │   ├── controllers
+│   │   │   ├── AuthController.js
+│   │   │   ├── CategoryController.js
+│   │   │   ├── CouponController.js
+│   │   │   ├── OrderController.js
+│   │   │   ├── ProductController.js
+│   │   │   ├── ShoppingCartController.js
+│   │   │   └── UserController.js
+│   │   ├── middlewares
+│   │   │   ├── authJwt.js
+│   │   │   └── authRole.js
+│   │   └── routes
+│   │       ├── authRoutes.js
+│   │       ├── categoryRoutes.js
+│   │       ├── couponRoutes.js
+│   │       ├── orderRoutes.js
+│   │       ├── productRoutes.js
+│   │       ├── shoppingCartRoutes.js
+│   │       └── userRoutes.js
+│   ├── application
+│   │   ├── dtos
+│   │   │   ├── CategoryDTO.js
+│   │   │   ├── CouponDTO.js
+│   │   │   ├── OrderDTO.js
+│   │   │   ├── ProductDTO.js
+│   │   │   ├── ShoppingCartDTO.js
+│   │   └── useCases
+│   │       ├── CreateCategory.js
+│   │       ├── CreateCoupon.js
+│   │       ├── CreateOrder.js
+│   │       ├── CreateProduct.js
+│   │       ├── CreateShoppingCart.js
+│   │       ├── SignIn.js
+│   │       └── SignUp.js
+│   ├── config
+│   │   └── index.js
+│   ├── domain
+│   │   ├── entities
+│   │   │   ├── Category.js
+│   │   │   ├── Coupon.js
+│   │   │   ├── Order.js
+│   │   │   ├── Product.js
+│   │   │   ├── ShoppingCart.js
+│   │   │   └── User.js
+│   │   └── repositories
+│   │       ├── CategoryRepository.js
+│   │       ├── CouponRepository.js
+│   │       ├── OrderRepository.js
+│   │       ├── ProductRepository.js
+│   │       ├── ShoppingCartRepository.js
+│   │       └── UserRepository.js
+│   ├── infraestructure
+│   │   ├── database
+│   │   │   ├── models
+│   │   │   │   ├── CategoryModel.js
+│   │   │   │   ├── CouponModel.js
+│   │   │   │   ├── OrderModel.js
+│   │   │   │   ├── ProductModel.js
+│   │   │   │   ├── ShoppingCartModel.js
+│   │   │   │   └── User.js
+│   │   │   ├── mongoose.js
+│   │   │   └── mysqlConnection.js
+│   │   ├── docs
+│   │   │   └── swaggerConfig.js
+│   │   ├── repositories
+│   │   │   ├── MongoCategoryRepository.js
+│   │   │   ├── MongoCouponRepository.js
+│   │   │   ├── MongoOrderRepository.js
+│   │   │   ├── MongoProductRepository.js
+│   │   │   ├── MongoShoppingCartRepository.js
+│   │   │   ├── MongoUserRepository.js
+│   │   │   └── MySQLProductRepository.js
+│   │   └── services
+│   │       ├── PasswordHasher.js
+│   │       └── TokenGenerator.js
+│   └── index.js
+├── package-lock.json
+├── package.json
+└── README.md
+```
+
 ## Tecnologías utilizadas
 
 - **Node.js**: Entorno de ejecución para JavaScript en el servidor.
