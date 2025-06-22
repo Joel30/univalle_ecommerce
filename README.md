@@ -139,3 +139,64 @@ backen-ecommerce/
 - **Mongoose**: ODM (Object Data Modeling) para MongoDB y Node.js.
 - **JWT (JSON Web Tokens)**: Para la autenticación y autorización de usuarios.
 - **dotenv**: Para manejar variables de entorno.
+
+
+
+## Ultima actualización del proyecto
+
+- Se agregó el campo stock a productos
+    ```JAVASCRIPT
+    // src/domain/entities/Product.js
+    class Product {
+        constructor({ name, description, price, stock, category, imageUrl }) {
+            this.name = name;
+            this.description = description;
+            this.price = price;
+            this.stock = stock; // añadiendo campo stock
+            this.category = category;
+            this.imageUrl = imageUrl;
+        }
+    }       
+    module.exports = Product;
+    ```
+- Se actualizó un validar para que solo rol “admin” pueda crear productos
+    ```JAVASCRIPT
+        // src/index.js
+        const { verifyToken } = require('./adapters/middlewares/authJwt');
+        // src/adapters/middlewares/authJwt.js
+        if (token === MAGIC_TOKEN) {
+            req.userId = 'admin';
+            req.userRoles = ['admin'];
+            return next();
+        }
+                
+    ```
+- Se añaden las inteidades "Order" y "Cupons":
+    * Order + casos de uso y endpoints:
+      - src/adapters/controllers/OrderController.js
+      - src/adapters/routes/orderRoutes.js
+      - src/application/dtos/OrderDTO.js
+      - src/application/useCases/CreateOrder.js
+      - src/domain/entities/Order.js
+      - src/domain/repositories/OrderRepository.js
+
+    * Cupons + casos de uso y endpoints:
+      - src/adapters/controllers/CouponController.js
+      - src/adapters/routes/couponRoutes.js
+      - src/application/dtos/CouponDTO.js
+      - src/application/useCases/CreateCoupon.js
+      - src/domain/entities/Coupon.js
+      - src/domain/repositories/CouponRepository.js
+    ```JAVASCRIPT
+        // src/index.js
+        const CouponController = require('./adapters/controllers/CouponController');
+        const OrderController = require('./adapters/controllers/OrderController');
+        
+        const couponRoutes = require('./adapters/routes/couponRoutes');
+        const orderRoutes = require('./adapters/routes/orderRoutes');
+
+        const couponController = new CouponController(couponRepository);
+        const orderController = new OrderController(orderRepository);
+    ```
+
+- Se actualizó la documentación de "Order", "Cupons" y de todos sus endpoints.
